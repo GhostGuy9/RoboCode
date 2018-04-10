@@ -11,7 +11,7 @@ void setup()
   delay(500);
   playNote(22, 200);
   
-  motors.drive 
+  motors.drive(-100);
 
 }
 
