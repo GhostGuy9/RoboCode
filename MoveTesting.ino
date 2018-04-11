@@ -10,13 +10,6 @@ void setup()
 
 void loop() 
 {
-  //One Block move
-  //delay(1000);
-  //motors.leftMotor(200);
-  //motors.rightMotor(-200);
-  //delay(700);
-  //motors.drive(0);
-
   //dorward 1
   delay(1000);
   motors.drive(-200);
