@@ -5,12 +5,20 @@ RedBotMotors motors;
 
 void setup() 
 {
-
+  pinMode(buttonPin, INPUT_PULLUP);
 }
 
 void loop() 
 {
-  //dorward 1
+  if(digitalRead(buttonPin) == LOW)
+  {
+    runDrive();
+  }
+}
+
+void runDrive()
+{
+    //dorward 1
   delay(1000);
   motors.drive(-200);
   delay(700*3);
@@ -56,5 +64,5 @@ void loop()
   delay(1000);
   motors.drive(-200);
   delay(345*2);
-  motors.drive(0);
+  motors.drive(0);    
 }
