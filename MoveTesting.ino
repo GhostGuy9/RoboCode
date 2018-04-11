@@ -24,47 +24,47 @@ void runDrive()
   delay(1000);
   motors.drive(-200);
   delay(700*3);
-  motors.drive(0);
+  motors.brake();
 
   //turn 90 left
   delay(1000);
   motors.drive(-200);
   delay(345);
-  motors.drive(0);
+  motors.brake();
 
   //forward 1
   delay(1000);
   motors.drive(-200);
   delay(700);
-  motors.drive(0);
+  motors.brake();
     
   //turn 90 right
   delay(1000);
   motors.drive(-200);
   delay(345);
-  motors.drive(0);
+  motors.brake();
 
   //forward 3
   delay(1000);
   motors.drive(-200);
   delay(700*3);
-  motors.drive(0);
+  motors.brake();
   
   //turn 90 right
   delay(1000);
   motors.drive(-200);
   delay(345*2);
-  motors.drive(0);
+  motors.brake();
 
   //forward 6
   delay(1000);
   motors.drive(-200);
   delay(700*6);
-  motors.drive(0);
+  motors.brake();
 
   //turn 90 left
   delay(1000);
   motors.drive(-200);
   delay(345*2);
-  motors.drive(0);    
+  motors.brake();    
 }
