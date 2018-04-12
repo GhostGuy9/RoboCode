@@ -1,16 +1,7 @@
-#include <RedBotSoftwareSerial.h>
-#include <RedBot.h>
-
-RedBotMotors motors;
+#include "bot_move.h"
 
 //Board Button
 const int buttonPin = 12;
-
-//Turn Delay
-int turn = 350;
-
-//Forward Delay
-int forward = 650;
 
 void setup() 
 {
@@ -34,32 +25,6 @@ void loop()
   }
 }
 
-void moveForward(int dis)
-{
-  delay(1000);
-  motors.leftMotor(200);
-  motors.rightMotor(-190);
-  delay(forward*dis);
-  motors.brake();
-}
-
-void turnRight(int turnR)
-{
-  delay(1000);
-  motors.leftMotor(200);
-  motors.rightMotor(190);
-  delay(turn*turnR);
-  motors.brake();
-}
-
-void turnLeft(int turnL)
-{
-  delay(1000);
-  motors.leftMotor(-200);
-  motors.rightMotor(-190);
-  delay(turn*turnL);
-  motors.brake();
-}
 /*
 void runDrive()
 {
