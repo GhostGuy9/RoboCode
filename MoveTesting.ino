@@ -1,87 +1,41 @@
-#include "bot_move.h"
+#include <RedBotSoftwareSerial.h>
+#include <RedBot.h>
 
-//Board Button
-const int buttonPin = 12;
+RedBotMotors motors;
 
-void setup() 
+//Turn Delay
+int turn = 350;
+
+//Motor Power - May be need to change the varibles and offsets
+int motorL = 200;
+int motorR = motorL*0.95;
+
+//Forward Delay
+int forward = 650;
+
+void moveForward(int dis)
 {
-  pinMode(buttonPin, INPUT_PULLUP);
+  delay(1000);
+  motors.leftMotor(motorL);
+  motors.rightMotor(0-motorR);
+  delay(forward*dis);
+  motors.brake();
 }
 
-void loop() 
+void turnRight(int turnR)
 {
-  if(digitalRead(buttonPin) == LOW)
-  {
-    moveForward(3);
-    turnLeft(1);
-    moveForward(1);
-    turnRight(1);
-    moveForward(3);
-    turnRight(1);
-    moveForward(1);
-    turnRight(2);
-    moveForward(6);
-    turnLeft(2);
-  }
+  delay(1000);
+  motors.leftMotor(motorL);
+  motors.rightMotor(motorR);
+  delay(turn*turnR);
+  motors.brake();
 }
 
-/*
-void runDrive()
+void turnLeft(int turnL)
 {
-  //forward 3
   delay(1000);
-  motors.leftMotor(200);
-  motors.rightMotor(-190);
-  delay(forward*3);
+  motors.leftMotor(0-motorL);
+  motors.rightMotor(0-motorR);
+  delay(turn*turnL);
   motors.brake();
-
-  //turn 90 left
-  delay(1000);
-  motors.leftMotor(-200);
-  motors.rightMotor(-190);
-  delay(turn);
-  motors.brake();
-
-  //forward 1
-  delay(1000);
-  motors.leftMotor(200);
-  motors.rightMotor(-190);
-  delay(forward);
-  motors.brake();
-    
-  //turn 90 right
-  delay(1000);
-  motors.leftMotor(200);
-  motors.rightMotor(190);
-  delay(turn);
-  motors.brake();
-  
-  //forward 3
-  delay(1000);
-  motors.leftMotor(200);
-  motors.rightMotor(-190);
-  delay(forward*3);
-  motors.brake();
-  
-  //turn 90 right
-  delay(1000);
-  motors.leftMotor(200);
-  motors.rightMotor(190);
-  delay(turn);
-  motors.brake();
-  
-  //forward 6
-  delay(1000);
-  motors.leftMotor(200);
-  motors.rightMotor(-190);
-  delay(forward*6);
-  motors.brake();
-
-  //turn 90 left
-  delay(1000);
-  motors.leftMotor(200);
-  motors.rightMotor(-190);
-  delay(turn*2);
-  motors.brake();    
 }
-*/

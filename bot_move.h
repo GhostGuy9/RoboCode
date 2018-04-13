@@ -4,16 +4,16 @@
 RedBotMotors motors;
 
 //Turn Delay
-int turn = 350;
+int turn = 288;
 
 //Motor Power - May be need to change the varibles and offsets
 int motorL = 200;
 int motorR = motorL*0.95;
 
 //Forward Delay
-int forward = 650;
+int forward = 600;
 
-void moveForward(int dis)
+void moveForward(double dis)
 {
   delay(1000);
   motors.leftMotor(motorL);
@@ -22,7 +22,7 @@ void moveForward(int dis)
   motors.brake();
 }
 
-void turnRight(int turnR)
+void turnRight(double turnR)
 {
   delay(1000);
   motors.leftMotor(motorL);
@@ -31,7 +31,7 @@ void turnRight(int turnR)
   motors.brake();
 }
 
-void turnLeft(int turnL)
+void turnLeft(double turnL)
 {
   delay(1000);
   motors.leftMotor(0-motorL);
