@@ -13,7 +13,7 @@ int motorR = motorL*0.945;
 //Forward Delay
 int forward = 750;
 
-void moveForward(double fdis)
+void moveForward(double fdis) //moves forward by # of tile - moveForward(#);
 {
   for(int go=0; go<=fdis; go++)
   {
@@ -26,7 +26,7 @@ void moveForward(double fdis)
   }
 }
 
-void turnRight(double turnR)
+void turnRight(double turnR) //turns by # - turnRight(#);
 {
   for(int go=0; go<=turnR; go++)
   {
@@ -39,7 +39,7 @@ void turnRight(double turnR)
   }
 }
 
-void turnLeft(double turnL)
+void turnLeft(double turnL) //turns by # - turnLeft(#);
 {
   for(int go=0; go<=turnL; go++)
   {
@@ -52,7 +52,7 @@ void turnLeft(double turnL)
   }
 }
 
-void moveBack(double bdis)
+void moveBack(double bdis) //moves backwards by # of tile - moveBack(#);
 {
   for(int go=0; go<=bdis; go++)
   {
