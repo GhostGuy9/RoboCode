@@ -17,6 +17,11 @@ int motorTR = motorTL*0.90;
 //Forward Delay
 int forward = 755;
 
+void setup()
+{
+  Serial.begin(9600);
+}
+
 void moveForward(double fdis) //moves forward by # of tile - moveForward(#);
 {
   for(int go=0; go<fdis; go++)
