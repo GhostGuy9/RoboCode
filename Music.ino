@@ -17,11 +17,11 @@ void loop()
 {
   if(digitalRead(buttonPin) == LOW)
   {
-    playSmallWorld();
+    playSong();
   }
 }
 
-void playSmallWorld()
+void playSong()
 { 
   playNote(noteG5, HN+QN);
   playNote(noteG5, QN);
