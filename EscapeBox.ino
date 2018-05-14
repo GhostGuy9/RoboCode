@@ -1,31 +1,44 @@
-#include <RedBot.h>
-RedBotMotors motors;
+#include "bot_move.h"
+#include "notes.h"
 
-RedBotBumper leftBumper = RedBotBumper(); //need to figure out which pin for object
-RedBotBumper rightBumper= RedBotBumper(); // previous comment
-
-int buttonPin = ; //buttonPin variable (whatever it is attached to)
-
-void setup() {}
+RedBotBumper leftBumper = RedBotBumper(A3); // initialzes bumper object on pin 3
+RedBotBumper rightBumper = RedBotBumper(11); //initialzes bumper object on pin 11
 
 
-void loop() {
- motors.drive(); //Need to insert a distance for duration until collision
- leftBumperState = leftBumper.read();
- rightBumperState = rightBumper.read();
+int buttonPin = 12; // variable to store the button Pin 
 
- if (leftBumperState && rightBumperState = LOW){
-  motors.brake(); //Stops all movement
-  motors.reverse(); //Reverses not all the way
-  turnLeft();
-  motors.drive();
-  }
+int lBumperState = leftBumper.read();  // state variable to store the bumper value
+int rBumperState = rightBumper.read();
 
-  if(leftButtonState && rightBumperState = HIGH){
-    motors.drive() //Need to insert a distance for duration
-  }
 
- 
+void setup()
+{
+  Serial.begin(9600);
+  Serial.println("Testing Bumper");
+  Serial.println("==============");
 }
 
+void loop()
+{
+  Serial.println(lBumperState);
+  if(lBumperState && rBumperState == LOW)
+  {
+   //moveForward(1);
+   delay(500);
+   Serial.println("Low");
+  }
+  
+  if(lBumperState&& rBumperState == HIGH)
+   {
+    //motors.brake(); //stop
+    Serial.println("High");
+    delay(1000);
+   // moveBack(1); // backs up
+    delay(1000);
+    //turnRight(1);  // turns Right
+    delay(1000);
+    }
+
+    
+  }
 
