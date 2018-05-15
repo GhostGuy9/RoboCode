@@ -1,44 +1,54 @@
 #include "bot_move.h"
-#include "notes.h"
 
-RedBotBumper leftBumper = RedBotBumper(A3); // initialzes bumper object on pin 3
-RedBotBumper rightBumper = RedBotBumper(11); //initialzes bumper object on pin 11
+//Escape
 
+int leftBumperState = 0;
+int rightBumperState = 0;
 
-int buttonPin = 12; // variable to store the button Pin 
+void loop() {
 
-int lBumperState = leftBumper.read();  // state variable to store the bumper value
-int rBumperState = rightBumper.read();
+  leftBumperState = leftBumper.read();
+  rightBumperState = rightBumper.read();
 
-
-void setup()
-{
-  Serial.begin(9600);
-  Serial.println("Testing Bumper");
-  Serial.println("==============");
-}
-
-void loop()
-{
-  Serial.println(lBumperState);
-  if(lBumperState && rBumperState == LOW)
+  motors.leftMotor(-150);
+  motors.rightMotor(150);
+  
+  if (leftBumperState == LOW)
   {
-   //moveForward(1);
-   delay(500);
-   Serial.println("Low");
+    delay(500);
+    motors.leftMotor(0);
+    motors.rightMotor(0);
+    delay(500);
+    motors.leftMotor(150);
+    motors.rightMotor(-150);
+    delay(1000);
+    motors.leftMotor(150);
+    motors.rightMotor(150);
+    delay(500);
+    motors.leftMotor(0);
+    motors.rightMotor(0);
+    delay(500);
+    int rightBumperState = 0;
+    int leftBumperState = 0;
   }
   
-  if(lBumperState&& rBumperState == HIGH)
-   {
-    //motors.brake(); //stop
-    Serial.println("High");
+  if (rightBumperState == LOW)
+  {
+    delay(500);
+    motors.leftMotor(0);
+    motors.rightMotor(0);
+    delay(500);
+    motors.leftMotor(150);
+    motors.rightMotor(-150);
     delay(1000);
-   // moveBack(1); // backs up
-    delay(1000);
-    //turnRight(1);  // turns Right
-    delay(1000);
-    }
-
-    
+    motors.leftMotor(-150);
+    motors.rightMotor(-150);
+    delay(500);
+    motors.leftMotor(0);
+    motors.rightMotor(0);
+    delay(500);
+    int rightBumperState = 0;
+    int leftBumperState = 0;
   }
 
+}
