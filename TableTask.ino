@@ -1,9 +1,28 @@
+#include "bot_move.h"
+
 void setup() {
   // put your setup code here, to run once:
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  
+  moveForward(6);
+  turnLeft(1);
+  moveForward(2);
+  turnLeft(1);
+  moveForward(2);
+  turnLeft(1);
+  moveForward(2);
+  turnRight(1);
+  moveForward(2);
+  turnRight(1);
+  moveForward(2);
+  turnRight(1);
+  moveForward(2);
+  turnRight(1);
+  moveForward(2);
+  turnLeft(2);
+  moveForward(6);
+  
 }
