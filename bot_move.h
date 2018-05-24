@@ -157,3 +157,8 @@ void moveBack(double bdis) //moves backwards by # of tile - moveBack(#);
     motors.brake();
   }
 }
+
+
+//sensors when on tile == 890, 921, 915-917
+
+//sensors on dark surface 870-875, 900-910, 980-990
